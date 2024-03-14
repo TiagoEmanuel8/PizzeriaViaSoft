@@ -1,5 +1,11 @@
-import { InputType, Field } from '@nestjs/graphql';
-import { IsNotEmpty, IsOptional, IsString, IsArray } from 'class-validator';
+import { InputType, Field, Int } from '@nestjs/graphql';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsArray,
+  IsInt,
+} from 'class-validator';
 
 @InputType()
 export class CreateOrderDto {
@@ -24,9 +30,9 @@ export class CreateOrderDto {
 
   // @Field(() => Int, { description: 'Total do pedido' })
   // @IsInt({ message: 'Valor precisa ser um número' })
-  // amount: number;
+  // amount?: number;
 
   // @Field(() => Int, { description: 'Tempo estimado para preparar pedido' })
   // @IsInt({ message: 'Tempo precisa ser um número inteiro' })
-  // time: number;
+  // time?: number;
 }

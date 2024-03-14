@@ -9,9 +9,17 @@ import { OrderEntity } from '../../entities/order.entity';
 export class UserRepository implements IOrderRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(createUserDto: CreateOrderDto): Promise<OrderEntity> {
+  async create(
+    createOrderDto: CreateOrderDto,
+    amount: number,
+    time: number,
+  ): Promise<OrderEntity> {
     const newOrder = await this.prisma.order.create({
-      data: createUserDto,
+      data: {
+        ...createOrderDto,
+        amount,
+        time,
+      },
     });
     return newOrder as OrderEntity;
   }
