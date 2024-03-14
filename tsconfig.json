@@ -16,6 +16,18 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@config/*": ["./src/config/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@infra/*": ["./src/infra/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@middlewares/*": ["./src/shared/middleware/*"],
+      "@filters/*": ["./src/shared/filters/*"],
+      "@guards/*": ["./src/shared/guards/*"],
+      "@pipes/*": ["./src/shared/pipes/*"],
+      "@decorators/*": ["./src/shared/decorators/*"],
+      "@utilities/*": ["./src/shared/utilities/*"]
+    }
   }
 }
