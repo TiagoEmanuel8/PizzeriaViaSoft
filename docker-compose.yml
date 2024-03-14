@@ -15,7 +15,7 @@ services:
     depends_on:
       - mongodb
     ports:
-      - "${NODE_PORT}:3001"
+      - "${PORT}:3001"
     environment:
       - MONGO_URI=${DATABASE_URL}
 
