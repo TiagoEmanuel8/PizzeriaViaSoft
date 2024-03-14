@@ -22,11 +22,11 @@ export class CreateOrderInput {
   @IsString({ each: true, message: 'Adicionais devem ser string' })
   customizations?: string[];
 
-  // @Field(() => Int, { description: 'Amount of the order' })
-  // @IsInt({ message: 'Amount must be an integer' })
+  // @Field(() => Int, { description: 'Total do pedido' })
+  // @IsInt({ message: 'Valor precisa ser um número' })
   // amount: number;
 
-  // @Field(() => Int, { description: 'Time estimated for the order preparation' })
-  // @IsInt({ message: 'Time must be an integer' })
+  // @Field(() => Int, { description: 'Tempo estimado para preparar pedido' })
+  // @IsInt({ message: 'Tempo precisa ser um número inteiro' })
   // time: number;
 }
