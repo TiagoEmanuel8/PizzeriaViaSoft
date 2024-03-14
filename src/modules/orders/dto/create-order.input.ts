@@ -2,7 +2,7 @@ import { InputType, Field } from '@nestjs/graphql';
 import { IsNotEmpty, IsOptional, IsString, IsArray } from 'class-validator';
 
 @InputType()
-export class CreateOrderInput {
+export class CreateOrderDto {
   @Field(() => String, { description: 'Tamanho do pedido' })
   @IsNotEmpty({ message: 'Tamanho do pedido é obrigatório' })
   @IsString({ message: 'Tamanho deve ser string' })
