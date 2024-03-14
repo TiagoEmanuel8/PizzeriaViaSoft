@@ -12,4 +12,4 @@ USER node
 
 COPY . .
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start:dev"]

@@ -15,9 +15,9 @@ services:
     depends_on:
       - mongodb
     ports:
-      - 3002:3002
+      - "${NODE_PORT}:3001"
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/viasoft_db_server
+      - MONGO_URI=${DATABASE_URL}
 
   mongodb:
     image: mongo:5.0.7
