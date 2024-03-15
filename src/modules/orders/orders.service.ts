@@ -18,8 +18,8 @@ export class OrdersService {
     return await this.repository.findAll();
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} order`;
+  async findOne(id: string) {
+    return await this.repository.findOne(id);
   }
 
   update(id: number, updateOrderInput: UpdateOrderDto) {
