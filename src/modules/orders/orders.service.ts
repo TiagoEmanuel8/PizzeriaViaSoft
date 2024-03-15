@@ -22,11 +22,11 @@ export class OrdersService {
     return await this.repository.findOne(id);
   }
 
-  update(id: number, updateOrderInput: UpdateOrderDto) {
-    return `This action updates a #${id} order`;
+  async update(id: any, updateOrderInput: UpdateOrderDto) {
+    return await this.repository.update(id, updateOrderInput);
   }
 
-  remove(id: string) {
+  async remove(id: string) {
     return `This action removes a #${id} order`;
   }
 }
