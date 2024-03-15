@@ -16,9 +16,9 @@ export class OrderRepository implements IOrderRepository {
   ): Promise<OrderEntity> {
     const newOrder = await this.prisma.order.create({
       data: {
-        ...createOrderDto,
         amount,
         time,
+        ...createOrderDto,
       },
     });
     return newOrder as OrderEntity;

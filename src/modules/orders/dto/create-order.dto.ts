@@ -1,10 +1,9 @@
-import { InputType, Field, Int } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 import {
   IsNotEmpty,
   IsOptional,
   IsString,
   ValidateNested,
-  IsNumber,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { CreateOrderItemDto } from './create-order-item.dto';
@@ -48,15 +47,15 @@ export class CreateOrderDto {
   @IsOptional()
   observation?: string;
 
-  @Field(() => Int, { description: 'Valor total da compra' })
-  @IsNotEmpty({ message: 'Valor total da compra não deve ser vazio' })
-  @IsNumber({}, { message: 'Valor total é obrigatório e deve ser um número' })
-  amount: number;
+  // @Field(() => Int, { description: 'Valor total da compra' })
+  // @IsNotEmpty({ message: 'Valor total da compra não deve ser vazio' })
+  // @IsNumber({}, { message: 'Valor total é obrigatório e deve ser um número' })
+  // amount: number;
 
-  @Field(() => Int, { description: 'Tempo estimado da entrega' })
-  @IsNumber(
-    {},
-    { message: 'Tempo estimado é obrigatório e deve ser um número' },
-  )
-  time: number;
+  // @Field(() => Int, { description: 'Tempo estimado da entrega' })
+  // @IsNumber(
+  //   {},
+  //   { message: 'Tempo estimado é obrigatório e deve ser um número' },
+  // )
+  // time: number;
 }

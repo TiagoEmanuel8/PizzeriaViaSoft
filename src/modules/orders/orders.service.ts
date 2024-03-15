@@ -8,12 +8,16 @@ export class OrdersService {
   constructor(private readonly repository: OrderRepository) {}
 
   async create(createOrderInput: CreateOrderDto) {
-    // definir essas funções externamente
+    // regras de negócio para definir o preço do pedido
     const amount = createOrderInput.items.reduce(
       (sum, item) => sum + item.quantity * 10,
       0,
-    ); // Exemplo: cada item adiciona um valor fictício ao total
-    const time = createOrderInput.items.length * 15; // Exemplo: cada item adiciona 15 minutos ao tempo de preparo
+    );
+    // regras de negócio para definir o tempo de preparo do pedido
+    const time = createOrderInput.items.reduce(
+      (max, item) => Math.max(max, item.quantity * 5),
+      0,
+    );
 
     return await this.repository.create(createOrderInput, amount, time);
   }
