@@ -6,7 +6,7 @@ import { UpdateOrderDto } from '../../dto/update-order.input';
 import { OrderEntity } from '../../entities/order.entity';
 
 @Injectable()
-export class UserRepository implements IOrderRepository {
+export class OrderRepository implements IOrderRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(

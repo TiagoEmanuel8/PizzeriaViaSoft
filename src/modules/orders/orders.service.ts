@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { CreateOrderDto } from './dto/create-order.input';
 import { UpdateOrderDto } from './dto/update-order.input';
+import { OrderRepository } from './repository/impl/order.repository';
 
 @Injectable()
 export class OrdersService {
-  create(createOrderInput: CreateOrderDto) {
-    return 'This action adds a new order';
+  constructor(private readonly repository: OrderRepository) {}
+
+  async create(createOrderInput: CreateOrderDto) {
+    // definir essas funções externamente
+    const amount = 1;
+    const time = 1;
+    return await this.repository.create(createOrderInput, amount, time);
   }
 
   findAll() {
