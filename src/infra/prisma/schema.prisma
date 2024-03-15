@@ -8,10 +8,18 @@ datasource db {
 }
 
 model Order {
+  id     String      @id @default(auto()) @map("_id") @db.ObjectId
+  items  OrderItem[]
+  amount Float
+  time   Float
+}
+
+model OrderItem {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  orderId        String   @db.ObjectId
+  order          Order    @relation(fields: [orderId], references: [id])
   size           String
   flavor         String
   customizations String[]
-  amount         Float
-  time           Float
+  quantity       Int      @default(1)
 }

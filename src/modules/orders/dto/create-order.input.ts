@@ -1,16 +1,22 @@
-import { InputType, Field } from '@nestjs/graphql';
-import { IsNotEmpty, IsOptional, IsString, IsArray } from 'class-validator';
+import { InputType, Field, Int } from '@nestjs/graphql';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsArray,
+  IsInt,
+} from 'class-validator';
 
 @InputType()
 export class CreateOrderDto {
-  @Field(() => String, { description: 'Tamanho do pedido' })
-  @IsNotEmpty({ message: 'Tamanho do pedido é obrigatório' })
-  @IsString({ message: 'Tamanho deve ser string' })
+  @Field(() => String, { description: 'Tamanho da pizza' })
+  @IsNotEmpty({ message: 'Tamanho da pizza é obrigatório' })
+  @IsString({ message: 'Tamanho deve ser do tipo string' })
   size: string;
 
-  @Field(() => String, { description: 'Sabor do pedido' })
-  @IsNotEmpty({ message: 'Sabor do pedido é obrigatório' })
-  @IsString({ message: 'Sabor deve ser string' })
+  @Field(() => String, { description: 'Sabor da pizza' })
+  @IsNotEmpty({ message: 'Sabor da pizza é obrigatório' })
+  @IsString({ message: 'Sabor deve ser do tipo string' })
   flavor: string;
 
   @Field(() => [String], {
@@ -18,15 +24,11 @@ export class CreateOrderDto {
     nullable: true,
   })
   @IsOptional()
-  @IsArray({ message: 'Adicionais deve ser array de string' })
-  @IsString({ each: true, message: 'Adicionais devem ser string' })
+  @IsArray({ message: 'Adicionais devem ser array de string' })
+  @IsString({ each: true, message: 'Cada adicional deve ser uma string' })
   customizations?: string[];
 
-  // @Field(() => Int, { description: 'Total do pedido' })
-  // @IsInt({ message: 'Valor precisa ser um número' })
-  // amount?: number;
-
-  // @Field(() => Int, { description: 'Tempo estimado para preparar pedido' })
-  // @IsInt({ message: 'Tempo precisa ser um número inteiro' })
-  // time?: number;
+  @Field(() => Int, { description: 'Quantidade do produto' })
+  @IsInt({ message: 'Quantidade precisa ser um número inteiro' })
+  quantity: number;
 }
