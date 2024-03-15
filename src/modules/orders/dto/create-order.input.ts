@@ -1,11 +1,5 @@
-import { InputType, Field, Int } from '@nestjs/graphql';
-import {
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  IsArray,
-  IsInt,
-} from 'class-validator';
+import { InputType, Field } from '@nestjs/graphql';
+import { IsNotEmpty, IsOptional, IsString, IsArray } from 'class-validator';
 
 @InputType()
 export class CreateOrderDto {

@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type OrderEntity {
+  """Example field (placeholder)"""
+  id: String!
+
+  """Tamanho do pedido"""
+  size: String!
+
+  """Sabor do pedido"""
+  flavor: String!
+
+  """Adicionais do pedido"""
+  customizations: [String!]
+
+  """Total do pedido"""
+  amount: Int!
+
+  """Tempo estimado para preparar pedido"""
+  time: Int!
+}
+
+type Query {
+  orders: [OrderEntity!]!
+  order(id: Int!): OrderEntity!
+}
+
+type Mutation {
+  createOrder(createOrderInput: CreateOrderDto!): OrderEntity!
+  updateOrder(updateOrderInput: UpdateOrderDto!): OrderEntity!
+  removeOrder(id: Int!): OrderEntity!
+}
+
+input CreateOrderDto {
+  """Tamanho do pedido"""
+  size: String!
+
+  """Sabor do pedido"""
+  flavor: String!
+
+  """Adicionais do pedido"""
+  customizations: [String!]
+}
+
+input UpdateOrderDto {
+  """Tamanho do pedido"""
+  size: String
+
+  """Sabor do pedido"""
+  flavor: String
+
+  """Adicionais do pedido"""
+  customizations: [String!]
+  id: String!
+}
