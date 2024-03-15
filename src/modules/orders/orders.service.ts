@@ -27,6 +27,6 @@ export class OrdersService {
   }
 
   async remove(id: string) {
-    return `This action removes a #${id} order`;
+    return await this.repository.remove(id);
   }
 }
