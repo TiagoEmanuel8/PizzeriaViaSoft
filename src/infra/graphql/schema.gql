@@ -2,24 +2,51 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type OrderEntity {
-  """Example field (placeholder)"""
+type OrderItemEntity {
   id: String!
 
-  """Tamanho do pedido"""
+  """Tamanho do produto"""
   size: String!
 
-  """Sabor do pedido"""
+  """Sabor do produto"""
   flavor: String!
 
-  """Adicionais do pedido"""
+  """Adicionais do produto"""
   customizations: [String!]
 
-  """Total do pedido"""
-  amount: Int!
+  """Quantidade do produto"""
+  quantity: Int!
+}
 
-  """Tempo estimado para preparar pedido"""
+type OrderEntity {
+  id: String!
+
+  """Itens do pedido"""
+  items: [OrderItemEntity!]!
+
+  """Valor total do pedido"""
+  amount: Float!
+
+  """Tempo estimado para preparar o pedido"""
   time: Int!
+
+  """Nome do cliente"""
+  name: String!
+
+  """Endereço do cliente"""
+  address: String!
+
+  """Bairro do cliente"""
+  district: String!
+
+  """Cidade do cliente"""
+  city: String!
+
+  """CEP do cliente"""
+  cep: String!
+
+  """Observações sobre o pedido"""
+  observation: String
 }
 
 type Query {
@@ -29,29 +56,41 @@ type Query {
 
 type Mutation {
   createOrder(createOrderInput: CreateOrderDto!): OrderEntity!
-  updateOrder(updateOrderInput: UpdateOrderDto!): OrderEntity!
   removeOrder(id: Int!): OrderEntity!
 }
 
 input CreateOrderDto {
-  """Tamanho do pedido"""
+  items: [CreateOrderItemDto!]!
+
+  """Nome do cliente"""
+  name: String!
+
+  """Endereço do cliente"""
+  address: String!
+
+  """Bairro do cliente"""
+  district: String!
+
+  """Cidade do cliente"""
+  city: String!
+
+  """CEP do cliente"""
+  cep: String!
+
+  """Observações sobre o pedido"""
+  observation: String
+}
+
+input CreateOrderItemDto {
+  """Tamanho da pizza"""
   size: String!
 
-  """Sabor do pedido"""
+  """Sabor da pizza"""
   flavor: String!
 
   """Adicionais do pedido"""
   customizations: [String!]
-}
 
-input UpdateOrderDto {
-  """Tamanho do pedido"""
-  size: String
-
-  """Sabor do pedido"""
-  flavor: String
-
-  """Adicionais do pedido"""
-  customizations: [String!]
-  id: String!
+  """Quantidade de pizza"""
+  quantity: Int!
 }
