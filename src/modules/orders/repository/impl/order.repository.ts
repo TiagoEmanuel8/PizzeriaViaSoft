@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../../infra/client/prisma.service';
 import { IOrderRepository } from '../order.repository.interface';
 import { CreateOrderDto } from '../../dto/create-order.dto';
-import { UpdateOrderDto } from '../../dto/update-order.input';
+// import { UpdateOrderDto } from '../../dto/update-order.input';
 import { OrderEntity } from '../../entities/order.entity';
 
 @Injectable()
@@ -14,14 +14,30 @@ export class OrderRepository implements IOrderRepository {
     amount: number,
     time: number,
   ): Promise<OrderEntity> {
-    const newOrder = await this.prisma.order.create({
-      data: {
-        amount,
-        time,
-        ...createOrderDto,
+    const orderData = {
+      ...createOrderDto,
+      amount,
+      time,
+      items: {
+        create: createOrderDto.items.map((item) => ({
+          size: item.size,
+          flavor: item.flavor,
+          customizations: item.customizations || [],
+          quantity: item.quantity,
+        })),
       },
+    };
+
+    const newOrder = await this.prisma.$transaction(async (prisma) => {
+      return await prisma.order.create({
+        data: orderData,
+        include: {
+          items: true,
+        },
+      });
     });
-    return newOrder as OrderEntity;
+
+    return newOrder as unknown as OrderEntity;
   }
 
   async findAll(): Promise<OrderEntity[]> {
@@ -36,16 +52,16 @@ export class OrderRepository implements IOrderRepository {
     return order as OrderEntity;
   }
 
-  async update(
-    id: string,
-    updateUserDto: UpdateOrderDto,
-  ): Promise<OrderEntity> {
-    const updateOrder = await this.prisma.order.update({
-      where: { id },
-      data: updateUserDto,
-    });
-    return updateOrder as OrderEntity;
-  }
+  // async update(
+  //   id: string,
+  //   updateUserDto: UpdateOrderDto,
+  // ): Promise<OrderEntity> {
+  //   const updateOrder = await this.prisma.order.update({
+  //     where: { id },
+  //     data: updateUserDto,
+  //   });
+  //   return updateOrder as OrderEntity;
+  // }
 
   async remove(id: string): Promise<void> {
     await this.prisma.order.delete({

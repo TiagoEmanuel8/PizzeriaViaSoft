@@ -50,12 +50,12 @@ export class CreateOrderDto {
   // @Field(() => Int, { description: 'Valor total da compra' })
   // @IsNotEmpty({ message: 'Valor total da compra não deve ser vazio' })
   // @IsNumber({}, { message: 'Valor total é obrigatório e deve ser um número' })
-  // amount: number;
+  // amount?: number;
 
   // @Field(() => Int, { description: 'Tempo estimado da entrega' })
   // @IsNumber(
   //   {},
   //   { message: 'Tempo estimado é obrigatório e deve ser um número' },
   // )
-  // time: number;
+  // time?: number;
 }
