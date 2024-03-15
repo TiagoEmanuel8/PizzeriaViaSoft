@@ -2,21 +2,21 @@ import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderItemEntity {
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   id: string;
 
-  @Field(() => String, { description: 'Tamanho do pedido' })
+  @Field(() => String, { description: 'Tamanho do produto' })
   size: string;
 
-  @Field(() => String, { description: 'Sabor do pedido' })
+  @Field(() => String, { description: 'Sabor do produto' })
   flavor: string;
 
   @Field(() => [String], {
-    description: 'Adicionais do pedido',
     nullable: true,
+    description: 'Adicionais do produto',
   })
   customizations?: string[];
 
-  @Field(() => Int, { description: 'Sabor do pedido' })
-  quantity: string;
+  @Field(() => Int, { description: 'Quantidade do produto' })
+  quantity: number;
 }

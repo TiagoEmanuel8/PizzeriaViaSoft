@@ -1,22 +1,5 @@
 import { ObjectType, Field, Float, Int } from '@nestjs/graphql';
-
-@ObjectType()
-class OrderItemEntity {
-  @Field(() => String)
-  id: string;
-
-  @Field(() => String)
-  size: string;
-
-  @Field(() => String)
-  flavor: string;
-
-  @Field(() => [String], { nullable: true })
-  customizations?: string[];
-
-  @Field(() => Int)
-  quantity: number;
-}
+import { OrderItemEntity } from './order-item.entity';
 
 @ObjectType()
 export class OrderEntity {
@@ -26,9 +9,30 @@ export class OrderEntity {
   @Field(() => [OrderItemEntity], { description: 'Itens do pedido' })
   items: OrderItemEntity[];
 
-  @Field(() => Float, { description: 'Total do pedido' })
+  @Field(() => Float, { description: 'Valor total do pedido' })
   amount: number;
 
-  @Field(() => Int, { description: 'Tempo estimado para preparar pedido' })
+  @Field(() => Int, { description: 'Tempo estimado para preparar o pedido' })
   time: number;
+
+  @Field(() => String, { description: 'Nome do cliente' })
+  name: string;
+
+  @Field(() => String, { description: 'Endereço do cliente' })
+  address: string;
+
+  @Field(() => String, { description: 'Bairro do cliente' })
+  district: string;
+
+  @Field(() => String, { description: 'Cidade do cliente' })
+  city: string;
+
+  @Field(() => String, { description: 'CEP do cliente' })
+  cep: string;
+
+  @Field(() => String, {
+    nullable: true,
+    description: 'Observações sobre o pedido',
+  })
+  observation?: string;
 }
