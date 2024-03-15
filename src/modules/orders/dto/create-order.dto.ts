@@ -6,6 +6,7 @@ import {
   IsArray,
   IsInt,
   ValidateNested,
+  IsNumber,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -30,8 +31,8 @@ class CreateOrderItemDto {
   @IsString({ each: true, message: 'Cada adicional deve ser uma string' })
   customizations?: string[];
 
-  @Field(() => Int, { description: 'Quantidade do produto' })
-  @IsNotEmpty({ message: 'Tamanho da pizza é obrigatório' })
+  @Field(() => Int, { description: 'Quantidade de pizza' })
+  @IsNotEmpty({ message: 'Quantidade é obrigatório' })
   @IsInt({ message: 'Quantidade precisa ser um número inteiro' })
   quantity: number;
 }
@@ -42,4 +43,48 @@ export class CreateOrderDto {
   @ValidateNested({ each: true })
   @Type(() => CreateOrderItemDto)
   items: CreateOrderItemDto[];
+
+  @Field(() => String, { description: 'Nome do cliente' })
+  @IsNotEmpty({ message: 'Nome é obrigatório' })
+  @IsString({ message: 'Nome deve ser do tipo string' })
+  name: string;
+
+  @Field(() => String, { description: 'Endereço do cliente' })
+  @IsNotEmpty({ message: 'Endereço é obrigatório' })
+  @IsString({ message: 'Endereço deve ser do tipo string' })
+  address: string;
+
+  @Field(() => String, { description: 'Bairro do cliente' })
+  @IsNotEmpty({ message: 'Bairro é obrigatório' })
+  @IsString({ message: 'Bairro deve ser do tipo string' })
+  district: string;
+
+  @Field(() => String, { description: 'Cidade do cliente' })
+  @IsNotEmpty({ message: 'Cidade é obrigatória' })
+  @IsString({ message: 'Cidade deve ser do tipo string' })
+  city: string;
+
+  @Field(() => String, { description: 'CEP do cliente' })
+  @IsNotEmpty({ message: 'CEP é obrigatório' })
+  @IsString({ message: 'CEP deve ser do tipo string numérica' })
+  cep: string;
+
+  @Field(() => String, {
+    nullable: true,
+    description: 'Observações sobre o pedido',
+  })
+  @IsOptional()
+  observation?: string;
+
+  @Field(() => Int, { description: 'Valor total da compra' })
+  @IsNotEmpty({ message: 'Valor total da compra não deve ser vazio' })
+  @IsNumber({}, { message: 'Valor total é obrigatório e deve ser um número' })
+  amount: number;
+
+  @Field(() => Int, { description: 'Tempo estimado da entrega' })
+  @IsNumber(
+    {},
+    { message: 'Tempo estimado é obrigatório e deve ser um número' },
+  )
+  time: number;
 }
