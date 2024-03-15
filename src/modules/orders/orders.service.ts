@@ -14,8 +14,8 @@ export class OrdersService {
     return await this.repository.create(createOrderInput, amount, time);
   }
 
-  findAll() {
-    return `This action returns all orders`;
+  async findAll() {
+    return await this.repository.findAll();
   }
 
   findOne(id: string) {
