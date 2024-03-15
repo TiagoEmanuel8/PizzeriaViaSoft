@@ -5,10 +5,12 @@ import {
   IsString,
   IsArray,
   IsInt,
+  ValidateNested,
 } from 'class-validator';
+import { Type } from 'class-transformer';
 
 @InputType()
-export class CreateOrderDto {
+class CreateOrderItemDto {
   @Field(() => String, { description: 'Tamanho da pizza' })
   @IsNotEmpty({ message: 'Tamanho da pizza é obrigatório' })
   @IsString({ message: 'Tamanho deve ser do tipo string' })
@@ -29,6 +31,15 @@ export class CreateOrderDto {
   customizations?: string[];
 
   @Field(() => Int, { description: 'Quantidade do produto' })
+  @IsNotEmpty({ message: 'Tamanho da pizza é obrigatório' })
   @IsInt({ message: 'Quantidade precisa ser um número inteiro' })
   quantity: number;
+}
+
+@InputType()
+export class CreateOrderDto {
+  @Field(() => [CreateOrderItemDto])
+  @ValidateNested({ each: true })
+  @Type(() => CreateOrderItemDto)
+  items: CreateOrderItemDto[];
 }

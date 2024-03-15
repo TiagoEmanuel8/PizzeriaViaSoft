@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../../infra/client/prisma.service';
 import { IOrderRepository } from '../order.repository.interface';
-import { CreateOrderDto } from '../../dto/create-order.input';
+import { CreateOrderDto } from '../../dto/create-order.dto';
 import { UpdateOrderDto } from '../../dto/update-order.input';
 import { OrderEntity } from '../../entities/order.entity';
 

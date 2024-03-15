@@ -1,4 +1,4 @@
-import { CreateOrderDto } from '../dto/create-order.input';
+import { CreateOrderDto } from '../dto/create-order.dto';
 import { UpdateOrderDto } from '../dto/update-order.input';
 import { OrderEntity } from '../entities/order.entity';
 

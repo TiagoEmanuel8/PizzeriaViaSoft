@@ -8,10 +8,17 @@ datasource db {
 }
 
 model Order {
-  id     String      @id @default(auto()) @map("_id") @db.ObjectId
-  items  OrderItem[]
-  amount Float
-  time   Float
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  items        OrderItem[]
+  amount       Float
+  time         Float
+  name         String
+  address      String
+  district     String
+  city         String
+  cep          String
+  observation  String
+  mobileNumber String
 }
 
 model OrderItem {

@@ -1,4 +1,4 @@
-import { CreateOrderDto } from './create-order.input';
+import { CreateOrderDto } from './create-order.dto';
 import { InputType, Field, PartialType } from '@nestjs/graphql';
 
 @InputType()
