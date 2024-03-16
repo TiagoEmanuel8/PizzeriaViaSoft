@@ -47,6 +47,11 @@ export class CreateOrderDto {
   @IsOptional()
   observation?: string;
 
+  @Field(() => String, { description: 'Número de celular' })
+  @IsNotEmpty({ message: 'Número de celular é obrigatório' })
+  @IsString({ message: 'Número de celular deve ser do tipo string' })
+  mobileNumber: string;
+
   // @Field(() => Int, { description: 'Valor total da compra' })
   // @IsNotEmpty({ message: 'Valor total da compra não deve ser vazio' })
   // @IsNumber({}, { message: 'Valor total é obrigatório e deve ser um número' })

@@ -27,7 +27,7 @@ export class OrdersService {
     return await this.repository.findAll();
   }
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     return await this.repository.findOne(id);
   }
 
@@ -35,7 +35,7 @@ export class OrdersService {
   //   return await this.repository.update(id, updateOrderInput);
   // }
 
-  async remove(id: string) {
+  async remove(id: number) {
     return await this.repository.remove(id);
   }
 }

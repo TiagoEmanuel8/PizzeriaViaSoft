@@ -9,8 +9,10 @@ export class OrdersResolver {
   constructor(private readonly ordersService: OrdersService) {}
 
   @Mutation(() => OrderEntity)
-  createOrder(@Args('createOrderInput') createOrderInput: CreateOrderDto) {
-    return this.ordersService.create(createOrderInput);
+  async createOrder(
+    @Args('createOrderInput') createOrderInput: CreateOrderDto,
+  ) {
+    return await this.ordersService.create(createOrderInput);
   }
 
   @Query(() => [OrderEntity], { name: 'orders' })
@@ -19,7 +21,7 @@ export class OrdersResolver {
   }
 
   @Query(() => OrderEntity, { name: 'order' })
-  findOne(@Args('id', { type: () => Int }) id: string) {
+  findOne(@Args('id', { type: () => Int }) id: number) {
     return this.ordersService.findOne(id);
   }
 
@@ -29,7 +31,7 @@ export class OrdersResolver {
   // }
 
   @Mutation(() => OrderEntity)
-  removeOrder(@Args('id', { type: () => Int }) id: string) {
+  removeOrder(@Args('id', { type: () => Int }) id: number) {
     return this.ordersService.remove(id);
   }
 }

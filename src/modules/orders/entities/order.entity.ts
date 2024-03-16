@@ -9,12 +9,6 @@ export class OrderEntity {
   @Field(() => [OrderItemEntity], { description: 'Itens do pedido' })
   items: OrderItemEntity[];
 
-  @Field(() => Float, { description: 'Valor total do pedido' })
-  amount: number;
-
-  @Field(() => Int, { description: 'Tempo estimado para preparar o pedido' })
-  time: number;
-
   @Field(() => String, { description: 'Nome do cliente' })
   name: string;
 
@@ -29,6 +23,15 @@ export class OrderEntity {
 
   @Field(() => String, { description: 'CEP do cliente' })
   cep: string;
+
+  @Field(() => Float, { description: 'Valor total do pedido' })
+  amount: number;
+
+  @Field(() => Int, { description: 'Tempo estimado para preparar o pedido' })
+  time: number;
+
+  @Field(() => String, { description: 'Número de celular' })
+  mobileNumber: number;
 
   @Field(() => String, {
     nullable: true,

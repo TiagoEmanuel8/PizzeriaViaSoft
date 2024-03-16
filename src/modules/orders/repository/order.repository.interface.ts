@@ -9,7 +9,7 @@ export interface IOrderRepository {
     time: number,
   ): Promise<OrderEntity>;
   findAll(): Promise<OrderEntity[]>;
-  findOne(id: string): Promise<OrderEntity>;
+  findOne(id: number): Promise<OrderEntity>;
   // update(id: string, updateUserDto: UpdateOrderDto): Promise<OrderEntity>;
-  remove(id: string): Promise<void>;
+  remove(id: number): Promise<void>;
 }

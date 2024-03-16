@@ -42,14 +42,14 @@ export class OrderRepository implements IOrderRepository {
 
   async findAll(): Promise<OrderEntity[]> {
     const orders = await this.prisma.order.findMany();
-    return orders as OrderEntity[];
+    return orders as unknown as OrderEntity[];
   }
 
-  async findOne(id: string): Promise<OrderEntity> {
+  async findOne(id: number): Promise<OrderEntity> {
     const order = await this.prisma.order.findUnique({
       where: { id },
     });
-    return order as OrderEntity;
+    return order as unknown as OrderEntity;
   }
 
   // async update(
@@ -63,7 +63,7 @@ export class OrderRepository implements IOrderRepository {
   //   return updateOrder as OrderEntity;
   // }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.prisma.order.delete({
       where: { id },
     });

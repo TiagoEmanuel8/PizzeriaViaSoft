@@ -1,14 +1,15 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Order {
-  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  id           Int         @id @default(autoincrement())
   items        OrderItem[]
   amount       Float
   time         Float
@@ -17,13 +18,13 @@ model Order {
   district     String
   city         String
   cep          String
-  observation  String
+  observation  String?
   mobileNumber String
 }
 
 model OrderItem {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  orderId        String   @db.ObjectId
+  id             Int      @id @default(autoincrement())
+  orderId        Int
   order          Order    @relation(fields: [orderId], references: [id])
   size           String
   flavor         String

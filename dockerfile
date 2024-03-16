@@ -1,15 +1,16 @@
 FROM node:18-alpine
 
-USER node
-
 WORKDIR /app
 
 COPY package*.json ./
 
+RUN chown -R node:node /app
+
 USER root
 RUN npm install
+
 USER node
 
-COPY . .
+COPY --chown=node:node . .
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "start"]
