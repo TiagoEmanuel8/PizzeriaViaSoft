@@ -69,6 +69,7 @@ type UserEntity {
 type Query {
   orders: [OrderEntity!]!
   order(id: Int!): OrderEntity!
+  findAllUsers: [UserEntity!]!
   user(id: Int!): UserEntity!
 }
 
@@ -76,6 +77,7 @@ type Mutation {
   createOrder(createOrderInput: CreateOrderDto!): OrderEntity!
   removeOrder(id: Int!): OrderEntity!
   createUser(createUser: CreateUserDto!): UserEntity!
+  updateUser(updateUserInput: UpdateUserDto!): UserEntity!
   removeUser(id: Int!): UserEntity!
 }
 
@@ -145,4 +147,34 @@ input CreateUserDto {
 
   """CEP do usuário"""
   cep: String!
+}
+
+input UpdateUserDto {
+  """Nome do usuário"""
+  name: String
+
+  """Email do usuário"""
+  email: String
+
+  """CPF do usuário"""
+  cpf: String
+
+  """Senha do usuário"""
+  password: String
+
+  """Celular do usuário"""
+  mobileNumber: String
+
+  """Endereço do usuário"""
+  address: String
+
+  """Bairro do usuário"""
+  district: String
+
+  """Cidade do usuário"""
+  city: String
+
+  """CEP do usuário"""
+  cep: String
+  id: Int!
 }

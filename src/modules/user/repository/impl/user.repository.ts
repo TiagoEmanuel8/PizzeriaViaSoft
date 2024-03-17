@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../../infra/client/prisma.service';
 import { IUserRepository } from '../user.repository.interface';
 import { CreateUserDto } from '../../dto/create-user.input';
-// import { UpdateOrderDto } from '../../dto/update-order.input';
+import { UpdateUserDto } from '../../dto/update-user.input';
 import { UserEntity } from '../../entities/user.entity';
 
 @Injectable()
@@ -10,7 +10,6 @@ export class UserRepository implements IUserRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(userData: any): Promise<UserEntity> {
-    console.log(userData);
     const newUser = await this.prisma.$transaction(async (prisma) => {
       return await prisma.user.create({
         data: userData,
@@ -32,16 +31,13 @@ export class UserRepository implements IUserRepository {
     return user as unknown as UserEntity;
   }
 
-  // async update(
-  //   id: string,
-  //   updateUserDto: UpdateOrderDto,
-  // ): Promise<OrderEntity> {
-  //   const updateUser = await this.prisma.order.update({
-  //     where: { id },
-  //     data: updateUserDto,
-  //   });
-  //   return updateUser as OrderEntity;
-  // }
+  async update(id: number, updateUserDto: UpdateUserDto): Promise<UserEntity> {
+    const updateUser = await this.prisma.order.update({
+      where: { id },
+      data: updateUserDto,
+    });
+    return updateUser as unknown as UserEntity;
+  }
 
   async remove(id: number): Promise<void> {
     await this.prisma.user.delete({
