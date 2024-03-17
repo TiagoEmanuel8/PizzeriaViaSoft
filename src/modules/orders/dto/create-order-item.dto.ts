@@ -23,8 +23,7 @@ export class CreateOrderItemDto {
   @Field(() => String, { description: 'Sabor da pizza' })
   @IsNotEmpty({ message: 'Sabor da pizza é obrigatório' })
   @IsValidFlavor({
-    message:
-      'O sabor deve ser um dos seguintes valores: calabresa, marguerita, portuguesa',
+    message: 'O sabor devem ser: calabresa, marguerita, portuguesa',
   })
   flavor: string;
 
