@@ -9,7 +9,9 @@ export class OrdersService {
   constructor(private readonly repository: OrderRepository) {}
 
   async create(createOrderInput: CreateOrderDto): Promise<OrderEntity> {
-    // desenvolver amount e time futuramente conforme as regras de negócios
+    console.log(createOrderInput);
+    console.log(createOrderInput.items);
+
     const amount = createOrderInput.items.reduce(
       (sum, item) => sum + item.quantity * 10,
       0,
