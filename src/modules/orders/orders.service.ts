@@ -3,6 +3,7 @@ import { CreateOrderDto } from './dto/create-order.dto';
 // import { UpdateOrderDto } from './dto/update-order.input';
 import { OrderRepository } from './repository/impl/order.repository';
 import { OrderEntity } from './entities/order.entity';
+import { calculateItemPreparationTime } from '../../shared/utilities/calculateTime.utility';
 
 @Injectable()
 export class OrdersService {
@@ -14,10 +15,9 @@ export class OrdersService {
       0,
     );
 
-    const time = createOrderInput.items.reduce(
-      (max, item) => Math.max(max, item.quantity * 5),
-      0,
-    );
+    const time = createOrderInput.items
+      .map((item) => calculateItemPreparationTime(item))
+      .reduce((sum, itemTime) => sum + itemTime, 0);
 
     const orderData = {
       ...createOrderInput,
