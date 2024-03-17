@@ -15,15 +15,14 @@ export class CreateOrderItemDto {
   @Field(() => String, { description: 'Tamanho da pizza' })
   @IsNotEmpty({ message: 'Tamanho da pizza é obrigatório' })
   @IsValidSize({
-    message:
-      'O tamanho deve ser um dos seguintes valores: pequena, media, G, grande',
+    message: 'Os tamanhos devem ser: pequena, media, G, grande',
   })
   size: string;
 
   @Field(() => String, { description: 'Sabor da pizza' })
   @IsNotEmpty({ message: 'Sabor da pizza é obrigatório' })
   @IsValidFlavor({
-    message: 'O sabor devem ser: calabresa, marguerita, portuguesa',
+    message: 'Os sabores devem ser: calabresa, marguerita, portuguesa',
   })
   flavor: string;
 
