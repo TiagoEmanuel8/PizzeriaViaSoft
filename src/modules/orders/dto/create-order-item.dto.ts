@@ -8,6 +8,7 @@ import {
 } from 'class-validator';
 import { IsValidSize } from '../../../shared/decorators/isValidSize.decorator';
 import { IsValidFlavor } from '../../../shared/decorators/isValidFlavor.decorator';
+import { IsValidCustomization } from '../../../shared/decorators/isValidCustomization.decorator';
 
 @InputType()
 export class CreateOrderItemDto {
@@ -34,6 +35,10 @@ export class CreateOrderItemDto {
   @IsOptional()
   @IsArray({ message: 'Adicionais devem ser array de string' })
   @IsString({ each: true, message: 'Cada adicional deve ser uma string' })
+  @IsValidCustomization({
+    message:
+      'As customizações devem ser: Extra bacon, sem cebola, borda recheada',
+  })
   customizations?: string[];
 
   @Field(() => Int, { description: 'Quantidade de pizza' })
