@@ -10,6 +10,7 @@ export class UserRepository implements IUserRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(userData: any): Promise<UserEntity> {
+    console.log(userData);
     const newUser = await this.prisma.$transaction(async (prisma) => {
       return await prisma.user.create({
         data: userData,

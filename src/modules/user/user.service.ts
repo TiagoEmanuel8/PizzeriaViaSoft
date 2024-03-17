@@ -8,8 +8,8 @@ import { UserEntity } from './entities/user.entity';
 export class UserService {
   constructor(private readonly repository: UserRepository) {}
 
-  async create(createUserInput: CreateUserDto): Promise<UserEntity> {
-    return await this.repository.create(createUserInput);
+  async create(createUser: CreateUserDto): Promise<UserEntity> {
+    return await this.repository.create(createUser);
   }
 
   async findAll() {

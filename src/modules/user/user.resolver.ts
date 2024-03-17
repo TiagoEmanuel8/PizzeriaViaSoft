@@ -10,9 +10,9 @@ export class UserResolver {
 
   @Mutation(() => UserEntity)
   async createUser(
-    @Args('createUserInput') createUserInput: CreateUserDto,
+    @Args('createUser') createUser: CreateUserDto,
   ): Promise<UserEntity> {
-    return this.userService.create(createUserInput);
+    return this.userService.create(createUser);
   }
 
   @Query(() => [UserEntity], { name: 'user' })

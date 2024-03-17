@@ -52,14 +52,31 @@ type OrderEntity {
   observation: String
 }
 
+type UserEntity {
+  id: ID!
+  name: String!
+  email: String!
+  cpf: String!
+  password: String!
+  mobileNumber: String!
+  address: String!
+  district: String!
+  city: String!
+  cep: String!
+  orders: [OrderEntity]
+}
+
 type Query {
   orders: [OrderEntity!]!
   order(id: Int!): OrderEntity!
+  user(id: Int!): UserEntity!
 }
 
 type Mutation {
   createOrder(createOrderInput: CreateOrderDto!): OrderEntity!
   removeOrder(id: Int!): OrderEntity!
+  createUser(createUser: CreateUserDto!): UserEntity!
+  removeUser(id: Int!): UserEntity!
 }
 
 input CreateOrderDto {
@@ -99,4 +116,33 @@ input CreateOrderItemDto {
 
   """Quantidade de pizza"""
   quantity: Int!
+}
+
+input CreateUserDto {
+  """Nome do usuário"""
+  name: String!
+
+  """Email do usuário"""
+  email: String!
+
+  """CPF do usuário"""
+  cpf: String!
+
+  """Senha do usuário"""
+  password: String!
+
+  """Celular do usuário"""
+  mobileNumber: String!
+
+  """Endereço do usuário"""
+  address: String!
+
+  """Bairro do usuário"""
+  district: String!
+
+  """Cidade do usuário"""
+  city: String!
+
+  """CEP do usuário"""
+  cep: String!
 }
