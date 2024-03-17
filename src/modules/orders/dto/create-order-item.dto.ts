@@ -35,7 +35,7 @@ export class CreateOrderItemDto {
   @IsString({ each: true, message: 'Cada adicional deve ser uma string' })
   @IsValidCustomization({
     message:
-      'As customizações devem ser: Extra bacon, sem cebola, borda recheada',
+      'As customizações devem ser: extra bacon, sem cebola, borda recheada',
   })
   customizations?: string[];
 
