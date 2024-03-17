@@ -11,7 +11,12 @@ export class IsValidCustomizationConstraint
   implements ValidatorConstraintInterface
 {
   validate(customizations: any, args: ValidationArguments) {
-    const validCustomizations = ['extra bacon', 'sem cebola', 'borda recheada'];
+    const validCustomizations = [
+      'extra bacon',
+      'sem cebola',
+      'borda recheada',
+      '',
+    ];
     return customizations.every((customization) =>
       validCustomizations.includes(customization),
     );

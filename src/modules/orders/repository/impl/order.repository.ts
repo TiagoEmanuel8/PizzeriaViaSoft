@@ -9,25 +9,7 @@ import { OrderEntity } from '../../entities/order.entity';
 export class OrderRepository implements IOrderRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(
-    createOrderDto: CreateOrderDto,
-    amount: number,
-    time: number,
-  ): Promise<OrderEntity> {
-    const orderData = {
-      ...createOrderDto,
-      amount,
-      time,
-      items: {
-        create: createOrderDto.items.map((item) => ({
-          size: item.size,
-          flavor: item.flavor,
-          customizations: item.customizations || [],
-          quantity: item.quantity,
-        })),
-      },
-    };
-
+  async create(orderData: any): Promise<OrderEntity> {
     const newOrder = await this.prisma.$transaction(async (prisma) => {
       return await prisma.order.create({
         data: orderData,

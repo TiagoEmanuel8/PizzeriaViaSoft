@@ -9,9 +9,6 @@ export class OrdersService {
   constructor(private readonly repository: OrderRepository) {}
 
   async create(createOrderInput: CreateOrderDto): Promise<OrderEntity> {
-    console.log(createOrderInput);
-    console.log(createOrderInput.items);
-
     const amount = createOrderInput.items.reduce(
       (sum, item) => sum + item.quantity * 10,
       0,
@@ -22,7 +19,21 @@ export class OrdersService {
       0,
     );
 
-    return await this.repository.create(createOrderInput, amount, time);
+    const orderData = {
+      ...createOrderInput,
+      amount,
+      time,
+      items: {
+        create: createOrderInput.items.map((item) => ({
+          size: item.size,
+          flavor: item.flavor,
+          customizations: item.customizations || [],
+          quantity: item.quantity,
+        })),
+      },
+    };
+
+    return await this.repository.create(orderData);
   }
 
   async findAll() {

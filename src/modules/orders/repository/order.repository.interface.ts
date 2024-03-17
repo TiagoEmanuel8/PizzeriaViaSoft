@@ -3,11 +3,7 @@ import { CreateOrderDto } from '../dto/create-order.dto';
 import { OrderEntity } from '../entities/order.entity';
 
 export interface IOrderRepository {
-  create(
-    createOrderDto: CreateOrderDto,
-    amount: number,
-    time: number,
-  ): Promise<OrderEntity>;
+  create(createOrderDto: CreateOrderDto): Promise<OrderEntity>;
   findAll(): Promise<OrderEntity[]>;
   findOne(id: number): Promise<OrderEntity>;
   // update(id: string, updateUserDto: UpdateOrderDto): Promise<OrderEntity>;
