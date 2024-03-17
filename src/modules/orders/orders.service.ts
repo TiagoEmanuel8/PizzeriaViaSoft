@@ -4,16 +4,16 @@ import { CreateOrderDto } from './dto/create-order.dto';
 import { OrderRepository } from './repository/impl/order.repository';
 import { OrderEntity } from './entities/order.entity';
 import { calculateItemPreparationTime } from '../../shared/utilities/calculateTime.utility';
+import { calculateItemAmount } from '../../shared/utilities/calculateAmount.utility';
 
 @Injectable()
 export class OrdersService {
   constructor(private readonly repository: OrderRepository) {}
 
   async create(createOrderInput: CreateOrderDto): Promise<OrderEntity> {
-    const amount = createOrderInput.items.reduce(
-      (sum, item) => sum + item.quantity * 10,
-      0,
-    );
+    const amount = createOrderInput.items
+      .map((item) => calculateItemAmount(item))
+      .reduce((sum, itemTime) => sum + itemTime, 0);
 
     const time = createOrderInput.items
       .map((item) => calculateItemPreparationTime(item))
