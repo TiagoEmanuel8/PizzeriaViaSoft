@@ -9,7 +9,7 @@ import {
 } from 'class-validator';
 
 @InputType()
-export class CreateUserInput {
+export class CreateUserDto {
   @Field(() => String, { description: 'Nome do usuário' })
   @IsNotEmpty({ message: 'O nome não pode ser vazio.' })
   @IsString({ message: 'O nome deve ser uma string.' })

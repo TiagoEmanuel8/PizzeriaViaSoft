@@ -9,7 +9,7 @@ export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
   @Mutation(() => UserEntity)
-  createUser(
+  async createUser(
     @Args('createUserInput') createUserInput: CreateUserInput,
   ): Promise<UserEntity> {
     return this.userService.create(createUserInput);

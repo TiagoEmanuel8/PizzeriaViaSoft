@@ -1,8 +1,8 @@
 import { CreateOrderDto } from './create-order.dto';
-import { InputType, Field, PartialType } from '@nestjs/graphql';
+import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
 export class UpdateOrderDto extends PartialType(CreateOrderDto) {
-  @Field(() => String)
+  @Field(() => Int)
   id: number;
 }
