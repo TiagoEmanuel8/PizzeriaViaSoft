@@ -70,15 +70,15 @@ type Query {
   orders: [OrderEntity!]!
   order(id: Int!): OrderEntity!
   findAllUsers: [UserEntity!]!
-  user(id: Int!): UserEntity!
+  findUserById(id: Int!): UserEntity!
 }
 
 type Mutation {
   createOrder(createOrderInput: CreateOrderDto!): OrderEntity!
   removeOrder(id: Int!): OrderEntity!
   createUser(createUser: CreateUserDto!): UserEntity!
-  updateUser(updateUserInput: UpdateUserDto!): UserEntity!
-  removeUser(id: Int!): UserEntity!
+  updateUser(id: Int!, updateUserInput: UpdateUserDto!): UserEntity!
+  removeUser(id: Int!): Boolean!
 }
 
 input CreateOrderDto {

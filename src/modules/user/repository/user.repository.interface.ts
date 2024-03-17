@@ -7,5 +7,5 @@ export interface IUserRepository {
   findAll(): Promise<UserEntity[]>;
   findOne(id: number): Promise<UserEntity>;
   update(id: number, updateUserDto: UpdateUserDto): Promise<UpdateUserDto>;
-  remove(id: number): Promise<void>;
+  remove(id: number): Promise<boolean>;
 }

@@ -20,7 +20,7 @@ export class UserService {
     return await this.repository.findOne(id);
   }
 
-  async update(id: any, updateOrderInput: UpdateUserDto) {
+  async update(id: number, updateOrderInput: UpdateUserDto) {
     return await this.repository.update(id, updateOrderInput);
   }
 

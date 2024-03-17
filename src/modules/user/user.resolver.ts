@@ -20,18 +20,21 @@ export class UserResolver {
     return this.userService.findAll();
   }
 
-  @Query(() => UserEntity, { name: 'user' })
+  @Query(() => UserEntity, { name: 'findUserById' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.userService.findOne(id);
   }
 
   @Mutation(() => UserEntity)
-  updateUser(@Args('updateUserInput') updateUserInput: UpdateUserDto) {
-    return this.userService.update(updateUserInput.id, updateUserInput);
+  async updateUser(
+    @Args('id', { type: () => Int }) id: number,
+    @Args('updateUserInput') updateUserInput: UpdateUserDto,
+  ): Promise<UserEntity> {
+    return this.userService.update(id, updateUserInput);
   }
 
-  @Mutation(() => UserEntity)
-  removeUser(@Args('id', { type: () => Int }) id: number) {
-    return this.userService.remove(id);
+  @Mutation(() => Boolean)
+  removeUser(@Args('id', { type: () => Int }) id: number): Promise<boolean> {
+    return this.userService.remove(+id);
   }
 }

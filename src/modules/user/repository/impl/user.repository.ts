@@ -9,7 +9,7 @@ import { UserEntity } from '../../entities/user.entity';
 export class UserRepository implements IUserRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(userData: any): Promise<UserEntity> {
+  async create(userData: CreateUserDto): Promise<UserEntity> {
     const newUser = await this.prisma.$transaction(async (prisma) => {
       return await prisma.user.create({
         data: userData,
@@ -39,9 +39,10 @@ export class UserRepository implements IUserRepository {
     return updateUser as unknown as UserEntity;
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(id: number): Promise<boolean> {
     await this.prisma.user.delete({
       where: { id },
     });
+    return true;
   }
 }
