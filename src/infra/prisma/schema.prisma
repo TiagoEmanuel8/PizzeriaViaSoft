@@ -8,18 +8,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Order {
-  id           Int         @id @default(autoincrement())
-  items        OrderItem[]
-  amount       Float
-  time         Float
+model User {
+  id           Int     @id @default(autoincrement())
   name         String
+  email        String  @unique
+  cpf          String  @unique
+  password     String
+  mobileNumber String
   address      String
   district     String
   city         String
   cep          String
-  observation  String?
-  mobileNumber String
+  orders       Order[]
+}
+
+model Order {
+  id          Int         @id @default(autoincrement())
+  userId      Int?
+  user        User?       @relation(fields: [userId], references: [id])
+  items       OrderItem[]
+  amount      Float
+  time        Float
+  observation String?
 }
 
 model OrderItem {
