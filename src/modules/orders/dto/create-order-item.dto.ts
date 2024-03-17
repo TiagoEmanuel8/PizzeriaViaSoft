@@ -7,6 +7,7 @@ import {
   IsInt,
 } from 'class-validator';
 import { IsValidSize } from '../../../shared/decorators/isValidSize.decorator';
+import { IsValidFlavor } from '../../../shared/decorators/isValidFlavor.decorator';
 
 @InputType()
 export class CreateOrderItemDto {
@@ -14,13 +15,16 @@ export class CreateOrderItemDto {
   @IsNotEmpty({ message: 'Tamanho da pizza é obrigatório' })
   @IsValidSize({
     message:
-      'O tamanho deve ser um dos seguintes valores: pequena, media, grande',
+      'O tamanho deve ser um dos seguintes valores: pequena, media, G, grande',
   })
   size: string;
 
   @Field(() => String, { description: 'Sabor da pizza' })
   @IsNotEmpty({ message: 'Sabor da pizza é obrigatório' })
-  @IsString({ message: 'Sabor deve ser do tipo string' })
+  @IsValidFlavor({
+    message:
+      'O sabor deve ser um dos seguintes valores: calabresa, marguerita, portuguesa',
+  })
   flavor: string;
 
   @Field(() => [String], {
