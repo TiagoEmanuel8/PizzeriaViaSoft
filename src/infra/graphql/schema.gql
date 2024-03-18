@@ -66,11 +66,17 @@ type UserEntity {
   orders: [OrderEntity]
 }
 
+type LoginEntity {
+  id: ID!
+  token: String
+}
+
 type Query {
   orders: [OrderEntity!]!
   order(id: Int!): OrderEntity!
   findAllUsers: [UserEntity!]!
   findUserById(id: Int!): UserEntity!
+  login: [LoginEntity!]!
 }
 
 type Mutation {
@@ -79,6 +85,7 @@ type Mutation {
   createUser(createUser: CreateUserDto!): UserEntity!
   updateUser(id: Int!, updateUserInput: UpdateUserDto!): UserEntity!
   removeUser(id: Int!): Boolean!
+  createLogin(createLoginInput: LoginDto!): String!
 }
 
 input CreateOrderDto {
@@ -177,4 +184,12 @@ input UpdateUserDto {
   """CEP do usuário"""
   cep: String
   id: Int!
+}
+
+input LoginDto {
+  """Email do usuário"""
+  email: String!
+
+  """Senha do usuário"""
+  password: String!
 }

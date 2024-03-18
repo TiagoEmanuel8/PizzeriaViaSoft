@@ -5,9 +5,6 @@ export class LoginEntity {
   @Field(() => ID)
   id: number;
 
-  @Field()
-  email: string;
-
-  @Field()
-  password: string;
+  @Field({ nullable: true })
+  token?: string;
 }
