@@ -10,7 +10,10 @@ import { calculateItemAmount } from '../../shared/utilities/calculateAmount.util
 export class OrdersService {
   constructor(private readonly repository: OrderRepository) {}
 
-  async create(createOrderInput: CreateOrderDto): Promise<OrderEntity> {
+  async create(
+    createOrderInput: CreateOrderDto,
+    userId: number,
+  ): Promise<OrderEntity> {
     const amount = createOrderInput.items
       .map((item) => calculateItemAmount(item))
       .reduce((sum, itemTime) => sum + itemTime, 0);
@@ -21,6 +24,7 @@ export class OrdersService {
 
     const orderData = {
       ...createOrderInput,
+      userId,
       amount,
       time,
       items: {

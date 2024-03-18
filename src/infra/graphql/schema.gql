@@ -24,29 +24,14 @@ type OrderEntity {
   """Itens do pedido"""
   items: [OrderItemEntity!]!
 
-  """Nome do cliente"""
-  name: String!
-
-  """Endereço do cliente"""
-  address: String!
-
-  """Bairro do cliente"""
-  district: String!
-
-  """Cidade do cliente"""
-  city: String!
-
-  """CEP do cliente"""
-  cep: String!
+  """Id do usuário"""
+  userId: ID!
 
   """Valor total do pedido"""
   amount: Float!
 
   """Tempo estimado para preparar o pedido"""
   time: Int!
-
-  """Número de celular"""
-  mobileNumber: String!
 
   """Observações sobre o pedido"""
   observation: String
@@ -91,26 +76,8 @@ type Mutation {
 input CreateOrderDto {
   items: [CreateOrderItemDto!]!
 
-  """Nome do cliente"""
-  name: String!
-
-  """Endereço do cliente"""
-  address: String!
-
-  """Bairro do cliente"""
-  district: String!
-
-  """Cidade do cliente"""
-  city: String!
-
-  """CEP do cliente"""
-  cep: String!
-
   """Observações sobre o pedido"""
   observation: String
-
-  """Número de celular"""
-  mobileNumber: String!
 }
 
 input CreateOrderItemDto {

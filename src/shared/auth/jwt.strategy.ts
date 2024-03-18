@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { ApolloError } from 'apollo-server-express';
-import { UserRepository } from '../../modules/user/repository/impl/user.repository';
+import { PrismaService } from '../../infra/client/prisma.service';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(private readonly repository: UserRepository) {
+  constructor(private readonly prisma: PrismaService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
@@ -15,10 +15,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
-    const email = payload.email;
-    const user = await this.repository.authUser(email);
+    const user = await this.prisma.user.findFirst({
+      where: { id: payload.sub },
+    });
     if (!user) {
-      throw new ApolloError('User not found');
+      throw new ApolloError('Invalid Token');
     }
     return user;
   }

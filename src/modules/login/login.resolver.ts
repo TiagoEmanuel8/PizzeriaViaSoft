@@ -7,7 +7,7 @@ import { LoginDto } from './dto/create-login.input';
 export class LoginResolver {
   constructor(private readonly loginService: LoginService) {}
 
-  @Mutation(() => String) // Indica que a mutação retorna uma String (o token JWT)
+  @Mutation(() => String)
   createLogin(
     @Args('createLoginInput') createLoginInput: LoginDto,
   ): Promise<string> {

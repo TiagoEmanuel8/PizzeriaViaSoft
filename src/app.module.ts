@@ -11,11 +11,12 @@ import { LoginModule } from './modules/login/login.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    DataModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/infra/graphql/schema.gql'),
+      context: ({ req }) => ({ ...req }),
     }),
+    DataModule,
     OrdersModule,
     UserModule,
     LoginModule,

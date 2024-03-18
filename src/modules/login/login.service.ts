@@ -27,8 +27,7 @@ export class LoginService {
 
     const payload = { id: user.id };
     const token = this.jwtService.sign(payload);
-    console.log(token);
-    // return JSON.stringify(token);
+
     return token;
   }
 
