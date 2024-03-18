@@ -8,14 +8,12 @@ import { PasswordHashService } from '../../shared/utilities/password-hash.utilit
 @Injectable()
 export class LoginService {
   constructor(
-    private readonly loginRepository: LoginRepository,
+    private readonly repository: LoginRepository,
     private readonly passwordHashService: PasswordHashService,
     private readonly jwtService: JwtService,
   ) {}
   async create(createLoginDto: LoginDto): Promise<string> {
-    const user = await this.loginRepository.verifyExisteField(
-      createLoginDto.email,
-    );
+    const user = await this.repository.verifyExisteField(createLoginDto.email);
 
     if (
       !user ||
@@ -33,7 +31,7 @@ export class LoginService {
     return JSON.stringify(token);
   }
 
-  findAll() {
-    return `This action returns all login`;
+  async findAll() {
+    return await this.repository.findAll();
   }
 }

@@ -16,4 +16,21 @@ export class LoginRepository implements ILoginRepository {
 
     return findUser as UserEntity;
   }
+
+  async findAll(): Promise<UserEntity[]> {
+    const users = await this.prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        cpf: true,
+        mobileNumber: true,
+        address: true,
+        district: true,
+        city: true,
+        cep: true,
+      },
+    });
+    return users as unknown as UserEntity[];
+  }
 }
