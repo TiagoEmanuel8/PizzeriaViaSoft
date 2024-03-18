@@ -6,6 +6,7 @@ export interface IUserRepository {
   create(createOrderDto: CreateUserDto): Promise<UserEntity>;
   findAll(): Promise<UserEntity[]>;
   findOne(id: number): Promise<UserEntity>;
+  findByEmailOrCpf(email: string, cpf: string): Promise<UserEntity | null>;
   update(id: number, updateUserDto: UpdateUserDto): Promise<UpdateUserDto>;
   remove(id: number): Promise<boolean>;
 }

@@ -54,6 +54,18 @@ export class UserRepository implements IUserRepository {
     return user as unknown as UserEntity;
   }
 
+  async findByEmailOrCpf(
+    email: string,
+    cpf: string,
+  ): Promise<UserEntity | null> {
+    const user = await this.prisma.user.findFirst({
+      where: {
+        OR: [{ email }, { cpf }],
+      },
+    });
+    return user as unknown as UserEntity | null;
+  }
+
   async update(id: number, updateUserDto: UpdateUserDto): Promise<UserEntity> {
     const updateUser = await this.prisma.order.update({
       where: { id },
