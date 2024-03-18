@@ -20,7 +20,7 @@ export class JwtInterceptor implements NestInterceptor {
       const decoded = this.jwtService.decode(token);
       request.user = decoded;
     }
- 
+
     return next.handle().pipe(
       map((data) => {
         return data;
