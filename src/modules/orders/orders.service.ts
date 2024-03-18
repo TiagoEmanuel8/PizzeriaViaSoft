@@ -40,17 +40,13 @@ export class OrdersService {
     return await this.repository.create(orderData);
   }
 
-  async findAll() {
-    return await this.repository.findAll();
+  async findAll(userId: number): Promise<OrderEntity[]> {
+    return this.repository.findAll(userId);
   }
 
-  async findOne(id: number) {
-    return await this.repository.findOne(id);
+  async findOne(id: number, userId: number): Promise<OrderEntity> {
+    return this.repository.findOne(id, userId);
   }
-
-  // async update(id: any, updateOrderInput: UpdateOrderDto) {
-  //   return await this.repository.update(id, updateOrderInput);
-  // }
 
   async remove(id: number) {
     return await this.repository.remove(id);

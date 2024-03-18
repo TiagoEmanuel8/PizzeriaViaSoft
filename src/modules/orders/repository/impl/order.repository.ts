@@ -21,28 +21,21 @@ export class OrderRepository implements IOrderRepository {
     return newOrder as unknown as OrderEntity;
   }
 
-  async findAll(): Promise<OrderEntity[]> {
-    const orders = await this.prisma.order.findMany();
+  async findAll(userId: number): Promise<OrderEntity[]> {
+    const orders = await this.prisma.order.findMany({
+      where: { userId },
+      include: { items: true },
+    });
     return orders as unknown as OrderEntity[];
   }
 
-  async findOne(id: number): Promise<OrderEntity> {
-    const order = await this.prisma.order.findUnique({
-      where: { id },
+  async findOne(id: number, userId: number): Promise<OrderEntity> {
+    const order = await this.prisma.order.findFirst({
+      where: { id, userId },
+      include: { items: true },
     });
     return order as unknown as OrderEntity;
   }
-
-  // async update(
-  //   id: string,
-  //   updateUserDto: UpdateOrderDto,
-  // ): Promise<OrderEntity> {
-  //   const updateOrder = await this.prisma.order.update({
-  //     where: { id },
-  //     data: updateUserDto,
-  //   });
-  //   return updateOrder as OrderEntity;
-  // }
 
   async remove(id: number): Promise<void> {
     await this.prisma.order.delete({

@@ -20,20 +20,19 @@ export class OrdersResolver {
     return await this.ordersService.create(createOrderInput, userId);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Query(() => [OrderEntity], { name: 'orders' })
-  findAll() {
-    return this.ordersService.findAll();
+  findAll(@Context() context) {
+    const userId = context.req.user.id; // Extração do ID do usuário do token JWT
+    return this.ordersService.findAll(userId);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Query(() => OrderEntity, { name: 'order' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.ordersService.findOne(id);
+  findOne(@Args('id', { type: () => Int }) id: number, @Context() context) {
+    const userId = context.req.user.id; // Extração do ID do usuário do token JWT
+    return this.ordersService.findOne(id, userId);
   }
-
-  // @Mutation(() => OrderEntity)
-  // updateOrder(@Args('updateOrderInput') updateOrderInput: UpdateOrderDto) {
-  //   return this.ordersService.update(updateOrderInput.id, updateOrderInput);
-  // }
 
   @Mutation(() => OrderEntity)
   removeOrder(@Args('id', { type: () => Int }) id: number) {
