@@ -16,9 +16,7 @@ export class OrdersResolver {
     @Args('createOrderInput') createOrderInput: CreateOrderDto,
     @Context() context,
   ) {
-    console.log('OrdersResolver#createOrder context:', context);
     const userId = context.req.user.id;
-    console.log('OrdersResolver#createOrder userId:', userId);
     return await this.ordersService.create(createOrderInput, userId);
   }
 
