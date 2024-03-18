@@ -2,7 +2,6 @@ import { Resolver, Query, Mutation, Args, Int, Context } from '@nestjs/graphql';
 import { OrdersService } from './orders.service';
 import { OrderEntity } from './entities/order.entity';
 import { CreateOrderDto } from './dto/create-order.dto';
-// import { UpdateOrderDto } from './dto/update-order.input';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../../shared/guards/jwt-auth.guard';
 
@@ -23,14 +22,14 @@ export class OrdersResolver {
   @UseGuards(JwtAuthGuard)
   @Query(() => [OrderEntity], { name: 'orders' })
   findAll(@Context() context) {
-    const userId = context.req.user.id; // Extração do ID do usuário do token JWT
+    const userId = context.req.user.id;
     return this.ordersService.findAll(userId);
   }
 
   @UseGuards(JwtAuthGuard)
   @Query(() => OrderEntity, { name: 'order' })
   findOne(@Args('id', { type: () => Int }) id: number, @Context() context) {
-    const userId = context.req.user.id; // Extração do ID do usuário do token JWT
+    const userId = context.req.user.id;
     return this.ordersService.findOne(id, userId);
   }
 
