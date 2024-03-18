@@ -18,6 +18,18 @@ type OrderItemEntity {
   quantity: Int!
 }
 
+type UserOrderEntity {
+  id: ID!
+  name: String!
+  email: String!
+  cpf: String!
+  mobileNumber: String!
+  address: String!
+  district: String!
+  city: String!
+  cep: String!
+}
+
 type OrderEntity {
   id: String!
 
@@ -26,6 +38,9 @@ type OrderEntity {
 
   """Id do usuário"""
   userId: ID!
+
+  """Usuário que fez o pedido"""
+  user: UserOrderEntity!
 
   """Valor total do pedido"""
   amount: Float!

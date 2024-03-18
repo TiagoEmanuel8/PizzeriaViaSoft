@@ -23,7 +23,22 @@ export class OrderRepository implements IOrderRepository {
   async findAll(userId: number): Promise<OrderEntity[]> {
     const orders = await this.prisma.order.findMany({
       where: { userId },
-      include: { items: true },
+      include: {
+        items: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            cpf: true,
+            mobileNumber: true,
+            address: true,
+            district: true,
+            city: true,
+            cep: true,
+          },
+        },
+      },
     });
     return orders as unknown as OrderEntity[];
   }
@@ -31,7 +46,22 @@ export class OrderRepository implements IOrderRepository {
   async findOne(id: number, userId: number): Promise<OrderEntity> {
     const order = await this.prisma.order.findFirst({
       where: { id, userId },
-      include: { items: true },
+      include: {
+        items: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            cpf: true,
+            mobileNumber: true,
+            address: true,
+            district: true,
+            city: true,
+            cep: true,
+          },
+        },
+      },
     });
     return order as unknown as OrderEntity;
   }

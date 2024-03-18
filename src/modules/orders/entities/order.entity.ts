@@ -1,5 +1,6 @@
 import { ObjectType, Field, Float, Int, ID } from '@nestjs/graphql';
 import { OrderItemEntity } from './order-item.entity';
+import { UserOrderEntity } from './user.entity';
 
 @ObjectType()
 export class OrderEntity {
@@ -11,6 +12,9 @@ export class OrderEntity {
 
   @Field(() => ID, { description: 'Id do usuário' })
   userId: number;
+
+  @Field(() => UserOrderEntity, { description: 'Usuário que fez o pedido' })
+  user: UserOrderEntity;
 
   @Field(() => Float, { description: 'Valor total do pedido' })
   amount: number;
