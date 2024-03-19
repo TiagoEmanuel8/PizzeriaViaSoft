@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { APP_GUARD } from '@nestjs/core';
-import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { join } from 'path';
 import { DataModule } from './modules/data.module';
 import { OrdersModule } from './modules/orders/orders.module';
@@ -18,21 +16,12 @@ import { LoginModule } from './modules/login/login.module';
       autoSchemaFile: join(process.cwd(), 'src/infra/graphql/schema.gql'),
       context: ({ req }) => ({ ...req }),
     }),
-    ThrottlerModule.forRoot({
-      ttl: 60,
-      limit: 10,
-    }),
     DataModule,
     OrdersModule,
     UserModule,
     LoginModule,
   ],
   controllers: [],
-  providers: [
-    {
-      provide: APP_GUARD,
-      useClass: ThrottlerGuard,
-    },
-  ],
+  providers: [],
 })
 export class AppModule {}
