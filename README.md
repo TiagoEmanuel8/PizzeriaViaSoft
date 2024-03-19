@@ -80,33 +80,34 @@ Abaixo irei comentar brevemente sobre o porquê da escolha das tecnologias:
 ![Captura de tela de 2024-03-18 23-45-38](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/a15eb939-edd4-43aa-9fa4-35bff2ad4761)
 
 - Listar usuarios cadastrados
-[upload da imagem]
+![Captura de tela de 2024-03-18 23-49-59](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/e592bbb2-ccd7-473f-a1be-e1299817ce0b)
+
 
 - Listar um unico usuario cadastrado
-[upload da imagem]
+![Captura de tela de 2024-03-18 23-51-07](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/081bcb33-375c-47d7-ad6e-1f591ef533b5)
 
-- Editar dados cadastrados
-[upload da imagem]
 
 - Excluir cadastro
-[upload da imagem]
+![Captura de tela de 2024-03-18 23-52-12](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/808bf134-8c1d-40b1-a82d-c4ccbea5340c)
+
 
 **Fluxo de Login**
+_Para fins de demonstração em outra ferramente utilizei o playground do apollo server para enfatizar a autenticação de usuário para realizar ou listar pedidos _
 - Realizar Login no sistema
-[upload da imagem]
+![Captura de tela de 2024-03-18 23-53-18](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/0b52646f-e8d3-473e-89b2-511987bcaaa4)
 
 **Fluxo de Pedidos**
 
 *Rotas protegida para usuários logados no sistema*
 
 - Cadastrar um novo pedido
-[upload da imagem]
+![Captura de tela de 2024-03-18 20-07-00](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/d359752a-116a-49c0-8bfa-8db03bc4356c)
 
 - Listar cargos pedidos relativos ao usuário
-[upload da imagem]
+![Captura de tela de 2024-03-18 20-06-27](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/567ecd29-20bc-4a28-b499-80da1c67515f)
 
 - Listar um unico cargo pedido relativo ao usuário
-[upload da imagem]
+![Captura de tela de 2024-03-18 20-06-15](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/1484b7a3-ac7e-4fb6-a151-c281e6983417)
 
 - Excluir pedidos
 [upload da imagem]
@@ -117,6 +118,7 @@ Abaixo irei comentar brevemente sobre o porquê da escolha das tecnologias:
 
 Por ter desenvolvido o projeto em graphql o próprio playground functions do apollo server ou postman, já documentam automaticamente *queries* e *mutations*, além de tipar retornos e inputs,
 Abaixo está uma imagem do projeto rodando na porta `localhost:3001/graphql` utilizando o Postman
+
 ![Captura de tela de 2024-03-18 23-38-07](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/d1e88718-bd73-4a43-b9fe-bf1d960cf06d)
 
 ---
