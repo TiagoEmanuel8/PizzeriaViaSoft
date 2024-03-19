@@ -94,3 +94,96 @@ por ter feito o projeto já contém uma documentação própria da ferramenta
 # Testes:
 
 descrever os testes
+
+# Instalação e uso
+
+Para executar o projeto sua máquina deve satisfazer os requisitos abaixo.  
+  
+Pré-requisitos  
+  
+```  
+- node v18.16.0  
+- npm v9.5.1  
+- git version v2.34.1  
+  
+```  
+  
+[Download node js](https://nodejs.org/en/)  
+  
+[Download git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
+  
+### Clonando o projeto  
+  
+Digite o comando abaixo para clonar o projeto.  
+  
+```  
+git clone https://github.com/TiagoEmanuel8/PizzeriaViaSoft.git
+```  
+  
+Entre na pasta  
+  
+```  
+cd pizzeriaviasoft
+  
+```  
+### Executando o projeto com **docker**
+
+<details>
+
+<summary>Clique para exibir os detalhes</summary>
+
+
+### Execute o comando abaixo para iniciar o docker  
+  
+```  
+docker-compose up -d
+```  
+
+### Caso queira parar a execução do docker use o comando
+  
+```  
+docker-compose down --rmi local --volumes --remove-orphans
+```  
+
+</details>
+
+### Executando o projeto **localmente**
+
+<details>
+
+<summary>Clique para exibir os detalhes</summary>
+
+### Substitua as variáveis de ambiente  
+  
+ em backend:
+```  
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
+
+PORT=`número da porta para a aplicação rodar`
+
+JWT_KEY=`uma senha que vai ajudar a criptografar senhas de usuários` 
+
+MONGO_PORT=`número da porta para rodar o mongodb`
+```  
+ 
+  
+### Instale as dependências
+
+### Abra o terminais e digite
+ 
+
+  Abra o terminal e digite:
+
+```  
+npm install  
+```
+
+### Execute o projeto  
+  
+em backend use
+```  
+npm start 
+```  
+
+</details>
+---
