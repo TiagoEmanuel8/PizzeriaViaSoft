@@ -7,6 +7,7 @@
 - [Apresentação do projeto](#apresentação-do-projeto)
 - [Tecnologias](#tecnologias)
 - [Funcionalidades](#funcionalidades)
+- [Documentação](#documentacao)
 
 ---
 
@@ -55,6 +56,8 @@ Esse projeto é uma aplicação backend que tem como objetivo realizar o gerenci
     </a>
 </div>
 
+
+
 ---
 
 # Funcionalidades
@@ -79,3 +82,7 @@ Esse projeto é uma aplicação backend que tem como objetivo realizar o gerenci
 - Excluir pedidos
 
 ---
+
+# Documentação
+
+por ter feito o projeto já contém uma documentação própria da ferramenta
