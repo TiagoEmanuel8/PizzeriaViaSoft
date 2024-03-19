@@ -163,7 +163,6 @@ JWT_KEY=`uma senha que vai ajudar a criptografar senhas de usuários`
 
 MONGO_PORT=`número da porta para rodar o mongodb`
 ```  
- 
   
 ### Instale as dependências
 
