@@ -168,7 +168,7 @@ MONGO_PORT=`número da porta para rodar o mongodb`
 
 ### Abra o terminais e digite
 
-  Abra o terminal e digite:
+Abra o terminal e digite:
 
 ```  
 npm install  
