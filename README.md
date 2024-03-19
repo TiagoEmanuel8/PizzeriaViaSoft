@@ -92,11 +92,13 @@ Abaixo irei comentar brevemente sobre o porquê da escolha das tecnologias:
 
 
 **Fluxo de Login**
-_Para fins de demonstração em outra ferramente utilizei o playground do apollo server para enfatizar a autenticação de usuário para realizar ou listar pedidos _
 - Realizar Login no sistema
 ![Captura de tela de 2024-03-18 23-53-18](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/0b52646f-e8d3-473e-89b2-511987bcaaa4)
 
 **Fluxo de Pedidos**
+_Para fins de demonstração em outra ferramente utilizei o playground do apollo server para enfatizar a autenticação de usuário para realizar ou listar pedidos _
+
+
 
 *Rotas protegida para usuários logados no sistema*
 
