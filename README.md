@@ -167,7 +167,6 @@ MONGO_PORT=`número da porta para rodar o mongodb`
 ### Instale as dependências
 
 ### Abra o terminais e digite
- 
 
   Abra o terminal e digite:
 
