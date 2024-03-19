@@ -59,7 +59,6 @@ Esse projeto é uma aplicação backend que tem como objetivo realizar o gerenci
 </div>
 
 
-
 ---
 
 # Funcionalidades
