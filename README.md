@@ -76,7 +76,8 @@ Abaixo irei comentar brevemente sobre o porquê da escolha das tecnologias:
 
 **Fluxo de Usuarios**
 - Cadastrar um novo usuario
-[upload da imagem]
+
+![Captura de tela de 2024-03-18 23-45-38](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/a15eb939-edd4-43aa-9fa4-35bff2ad4761)
 
 - Listar usuarios cadastrados
 [upload da imagem]
@@ -116,7 +117,7 @@ Abaixo irei comentar brevemente sobre o porquê da escolha das tecnologias:
 
 Por ter desenvolvido o projeto em graphql o próprio playground functions do apollo server ou postman, já documentam automaticamente *queries* e *mutations*, além de tipar retornos e inputs,
 Abaixo está uma imagem do projeto rodando na porta `localhost:3001/graphql` utilizando o Postman
-[fazer upload da imagem]
+![Captura de tela de 2024-03-18 23-38-07](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/d1e88718-bd73-4a43-b9fe-bf1d960cf06d)
 
 ---
 
@@ -124,7 +125,8 @@ Abaixo está uma imagem do projeto rodando na porta `localhost:3001/graphql` uti
 
 O projeto conta com testes sobre os fluxos de Usuário, Login e Pedidos, tanto nos arquivos de services quanto nos resolvers.
 Para executar os testes execute o comando `npm run test` no terminal do projeto
-[upload da imagem]
+
+![Captura de tela de 2024-03-18 20-08-52](https://github.com/TiagoEmanuel8/PizzeriaViaSoft/assets/72472530/11a8ba16-13c0-428c-af21-44e2ddd82baf)
 
 # Instalação e uso
 
