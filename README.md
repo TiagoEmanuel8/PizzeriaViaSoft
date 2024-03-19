@@ -8,6 +8,8 @@
 - [Tecnologias](#tecnologias)
 - [Funcionalidades](#funcionalidades)
 - [Documentação](#documentacao)
+- [Testes](#testes)
+- [Instalação e uso](#instalação-e-uso)
 
 ---
 
@@ -86,3 +88,9 @@ Esse projeto é uma aplicação backend que tem como objetivo realizar o gerenci
 # Documentação
 
 por ter feito o projeto já contém uma documentação própria da ferramenta
+
+---
+
+# Testes:
+
+descrever os testes
