@@ -1,6 +1,5 @@
 # Boas vindas a Pizzeria Voors 🍕
 
-
 # Sumário
 
 - [Apresentação do projeto](#apresentação-do-projeto)
