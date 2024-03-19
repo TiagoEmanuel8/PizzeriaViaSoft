@@ -9,4 +9,3 @@
 - [Funcionalidades](#funcionalidades)
 - [Preview](#preview)
 - [Instalação e uso](#instalação-e-uso)
-- [Próximos Passos](#próximos-passos)
