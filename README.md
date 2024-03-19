@@ -6,6 +6,7 @@
 
 - [Apresentação do projeto](#apresentação-do-projeto)
 - [Tecnologias](#tecnologias)
+- [Funcionalidades](#funcionalidades)
 
 ---
 
@@ -53,5 +54,28 @@ Esse projeto é uma aplicação backend que tem como objetivo realizar o gerenci
     <img src="https://img.shields.io/badge/jsonwebtoken-339933?style=for-the-badge&logo=jsonwebtoken&color=gray" />
     </a>
 </div>
+
+---
+
+# Funcionalidades
+
+**Fluxo de Usuarios**
+- Cadastrar um novo usuario
+- Listar usuarios cadastrados
+- Listar um unico usuario cadastrado
+- Editar dados cadastrados
+- Excluir cadastro
+
+**Fluxo de Login**
+- Realizar Login no sistema
+
+**Fluxo de Pedidos**
+
+*Rotas protegida para usuários logados no sistema*
+
+- Cadastrar um novo pedido
+- Listar cargos pedidos relativos ao usuário
+- Listar um unico cargo pedido relativo ao usuário
+- Excluir pedidos
 
 ---
