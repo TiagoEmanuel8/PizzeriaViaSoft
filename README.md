@@ -1,4 +1,5 @@
 
+
 # Boas vindas a Pizzeria Voors 🍕
 
 # Sumário
@@ -75,34 +76,55 @@ Abaixo irei comentar brevemente sobre o porquê da escolha das tecnologias:
 
 **Fluxo de Usuarios**
 - Cadastrar um novo usuario
+[upload da imagem]
+
 - Listar usuarios cadastrados
+[upload da imagem]
+
 - Listar um unico usuario cadastrado
+[upload da imagem]
+
 - Editar dados cadastrados
+[upload da imagem]
+
 - Excluir cadastro
+[upload da imagem]
 
 **Fluxo de Login**
 - Realizar Login no sistema
+[upload da imagem]
 
 **Fluxo de Pedidos**
 
 *Rotas protegida para usuários logados no sistema*
 
 - Cadastrar um novo pedido
+[upload da imagem]
+
 - Listar cargos pedidos relativos ao usuário
+[upload da imagem]
+
 - Listar um unico cargo pedido relativo ao usuário
+[upload da imagem]
+
 - Excluir pedidos
+[upload da imagem]
 
 ---
 
 # Documentação
 
-por ter feito o projeto já contém uma documentação própria da ferramenta
+Por ter desenvolvido o projeto em graphql o próprio playground functions do apollo server ou postman, já documentam automaticamente *queries* e *mutations*, além de tipar retornos e inputs,
+Abaixo está uma imagem do projeto rodando na porta `localhost:3001/graphql` utilizando o Postman
+[fazer upload da imagem]
 
 ---
 
 # Testes:
 
-descrever os testes
+O projeto conta com testes sobre os fluxos de Usuário, Login e Pedidos, tanto nos arquivos de services quanto nos resolvers.
+Para executar os testes execute o comando `npm run test` no terminal do projeto
+[upload da imagem]
 
 # Instalação e uso
 
