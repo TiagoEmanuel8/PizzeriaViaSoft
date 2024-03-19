@@ -15,6 +15,7 @@ async function bootstrap() {
     }),
   );
   app.use(helmet());
+  app.enableCors();
   await app.listen(PORT);
 }
 bootstrap();
