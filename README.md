@@ -1,3 +1,4 @@
+
 # Boas vindas a Pizzeria Voors 🍕
 
 # Sumário
@@ -55,6 +56,18 @@ Esse projeto é uma aplicação backend que tem como objetivo realizar o gerenci
     <img src="https://img.shields.io/badge/jsonwebtoken-339933?style=for-the-badge&logo=jsonwebtoken&color=gray" />
     </a>
 </div>
+
+
+Abaixo irei comentar brevemente sobre o porquê da escolha das tecnologias:
+
+ - **Nest**: Escolhi o NestJS pela sua robustez e facilidade na criação de um novo projeto. O NestJS é um verdadeiro amigo do desenvolvedor, pois disponibiliza diversas ferramentas prontas que simplificam o processo de desenvolvimento
+-   **PrismaORM**: Optei pelo Prisma ORM pela sua facilidade e versatilidade. O Prisma pode ser utilizado com vários bancos de dados, incluindo o MongoDB, obrigatório neste projeto.
+-   **Graphql**: A escolha do GraphQL para este projeto baseia-se na necessidade de flexibilidade e eficiência nas interações com a API, permitindo aos clientes especificar exatamente os dados necessários, reduzindo o tráfego de rede e otimizando o desempenho.
+-   **Postgres**: Usei o PostgreSQL pela à sua extensa compatibilidade com padrões SQL, capacidade de lidar com grandes volumes de dados com alta performance e suporte robusto a transações.
+-   **Jest**: Por padrão, o NestJS utiliza o Jest como test runner. Aproveitei essa configuração inicial que me permite criar testes assim que inicio o projeto, garantindo a qualidade do código e a detecção precoce de possíveis problemas
+ -   **Docker**: Considero o Docker essencial em qualquer projeto moderno e foi escolhido para garantir a consistência entre ambientes de desenvolvimento, teste e produção, reduzindo conflitos e simplificando o deployment e a escalabilidade.
+
+
 
 ---
 
